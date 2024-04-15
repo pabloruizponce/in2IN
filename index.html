@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"content="Leveraging individual Information to Generate Human INteractions">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>in2IN: Leveraging individual Information to Generate Human INteractions</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2H78CR2XXE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2H78CR2XXE');
+</script>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-accordion.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+  <!-- Carousel -->
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/carousel.js"></script>
+
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+
+  <!-- Kinematic -->
+  <script src="./static/js/kinematic.js"></script>
+  <script src="./static/motions/1304_in2IN.js"></script>
+  <script src="./static/motions/1304_intergen.js"></script>
+  <script src="./static/motions/140_in2IN.js"></script>
+  <script src="./static/motions/140_intergen.js"></script>
+  <script src="./static/motions/275_in2IN.js"></script>
+  <script src="./static/motions/275_intergen.js"></script>
+  <script src="./static/motions/3311_in2IN.js"></script>
+  <script src="./static/motions/3311_intergen.js"></script>
+  <script src="./static/motions/DualMDM_001.js"></script>
+  <script src="./static/motions/DualMDM_003.js"></script>
+  <script src="./static/motions/DualMDM_004.js"></script>
+  <script src="./static/motions/DualMDM_007.js"></script>
+  <script src="./static/motions/DualMDM_011.js"></script>
+  <script src="./static/motions/DualMDM_014.js"></script>
+
+
+  <!-- Accordions -->
+  <script type="text/javascript" src="./static/js/bulma-accordion.min.js"></script>
+
+  <!-- Plot Scheduler -->
+  <script src="./static/js/schedulers.js"></script>
+
+  <!-- MathJax -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">in2IN:Leveraging individual Information to Generate Human INteractions</h1>
+          <div class="is-size-4">HuMoGen CVPRW 2024</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.es/citations?user=25rkMIwAAAAJ&hl=es">Pablo Ruiz-Ponce</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=pRC8DwcAAAAJ&hl=en">German Barquero</a><sup>2,3</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=V0c9xx0AAAAJ&hl=en&oi=ao">Cristina Palmero</a><sup>2,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=oI6AIkMAAAAJ&hl=en&oi=ao">Sergio Escalera</a><sup>2,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.es/citations?user=GNTkqaYAAAAJ&hl=es">José García-Rodríguez</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Alicante,</span>
+            <span class="author-block"><sup>2</sup>University of Barcelona,</span>
+            <span class="author-block"><sup>3</sup>Computer Vision Center</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/pabloruizponce/in2IN"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <image id="teaser" height="100%" src="./static/images/cover.png"></image>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">📚 Abstract 📚</h2>
+        <div class="content has-text-justified">
+          <p>
+            Generating human-human motion interactions conditioned on textual descriptions is a very useful application in many areas such as robotics, gaming, animation, and the metaverse. Alongside this utility also comes a great difficulty in modeling the highly dimensional inter-personal dynamics. In addition, properly capturing the intra-personal diversity of interactions has a lot of challenges. Current methods generate interactions with limited diversity of intra-person dynamics due to the limitations of the available datasets and conditioning strategies. For this, we introduce <b>in2IN</b>, a novel diffusion model for human-human motion generation which is conditioned not only on the textual description of the overall interaction but also on the individual descriptions of the actions performed by each person involved in the interaction. To train this model, we use a large language model to extend the InterHuman dataset with individual descriptions. As a result, <b>in2IN</b> achieves state-of-the-art performance in the InterHuman dataset. Furthermore, in order to increase the intra-personal diversity on the existing interaction datasets, we propose <b>DualMDM</b>, a model composition technique that combines the motions generated with <b>in2IN</b> and the motions generated by a single-person motion prior pre-trained on HumanML3D. As a result, <b>DualMDM</b> generates motions with higher individual diversity and improves control over the intra-person dynamics while maintaining inter-personal coherence.
+          </p>
+        </div>
+        <div class="publication-video">
+          <video id="teaser" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/main.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">👫 in2IN: Interaction Diffusion Model 👫</h2>
+        <div class="content has-text-justified">
+          <p>
+            in2IN is a novel diffusion model architecture that is not only conditioned on the overall interaction description but also on the descriptions of the individual motion performed by each interactant. To do so, we extend the InterHuman dataset with LLM-generated textual descriptions of the individual human motions involved in the interaction. Our approach allows for a more precise interaction generation and achieves 🥇 <b>state-of-the-art</b> 🥇 results on InterHuman.          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+        <p class="has-text-centered"><b>Interaction description:</b></p>
+        <p class="has-text-centered">The two guys meet, grip each other's hand, and nod in agreement.</p>
+        <div class="columns is-multiline is-centered mt-3">
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause5" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv5" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">InterGen</p>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause6" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv6" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">in2IN</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="has-text-centered"><b>Interaction description:</b></p>
+        <p class="has-text-centered">One person spots the other person on the street, lifts the right hand to greet, and the other person glances towards one person. The X-axis represents time.</p>
+        <div class="columns is-multiline is-centered mt-3">
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause7" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv7" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">InterGen</p>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause8" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv8" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">in2IN</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="has-text-centered"><b>Interaction description:</b></p>
+        <p class="has-text-centered">Both they lift their right legs to kick one another. The X-axis represents time.</p>
+        <div class="columns is-multiline is-centered mt-3">
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause9" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv9" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">InterGen</p>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause10" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv10" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">in2IN</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="has-text-centered"><b>Interaction description:</b></p>
+        <p class="has-text-centered">The two individuals are dancing ballroom together. The X-axis represents time.</p>
+        <div class="columns is-multiline is-centered mt-3">
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause11" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv11" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">InterGen</p>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause12" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv12" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">in2IN</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <section class="accordions container is-max-desktop" style="margin-top: 5rem;">
+    <article class="accordion">
+      <div class="accordion-header p-4">
+        <p>Architecutre</p>
+        <button class="toggle" aria-label="toggle"></button>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-content">
+          <p>
+            Our proposed architecture consists of a Siamese Transformer that generates the denoised motion of each individual in the interaction (\(x^0_a\) and \(x^0_b\)). First, a self-attention layer models the intra-personal dependencies using the encoded individual condition and noisy motion of each person (\(x^t_a\) and \(x^t_b\)). Then, a cross-attention module models the inter-personal dynamics using the encoded interaction description, the self-attention output, and the noisy motion from the other interacting person.
+          </p>
+          <image height="100%" src="./static/images/architectures.png"></image>
+        </div>
+      </div>
+    </article>
+    <article class="accordion">
+      <div class="accordion-header p-4">
+        <p>Multi-Weight Classifier Free Guidance</p>
+        <button class="toggle" aria-label="toggle"></button>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-content">
+          <p>Our conditioning strategy for the diffusion model builds upon CFG, initially proposed by Ho <em>et al</em>. Generally, diffusion models have a significant dependency on CFG to generate high-quality samples. However, incorporating multiple conditions using CFG is not trivial. We address this by employing distinct weighting strategies for each condition. The equation representing our model's sampling function, denoted as \(G^{I}(x^{t}, t, c)\), is as follows:</p>
+          <p>\[
+          \begin{aligned}
+              G^{I}\left(x^{t}, t, c\right) &=   G\left(x^{t}, t, \emptyset\right) \\
+              & + w_c \cdot \left(G\left(x^{t}, t, c\right) - G\left(x^{t}, t, \emptyset\right)\right) \\
+              & + w_I \cdot \left(G\left(x^{t}, t, c_{\text{I}}\right) - G\left(x^{t}, t, \emptyset\right)\right) \\
+              & + w_i \cdot \left(G\left(x^{t}, t, c_{\text{i}}\right) - G\left(x^{t}, t, \emptyset\right)\right),
+          \end{aligned}
+          \]</p>
+          <p>where \(G(x^{t}, t, \emptyset)\) is the unconditional output of the model, and \(G(x^{t}, t, c)\), \(G(x^{t}, t, c_{\text{I}})\), and \(G(x^{t}, t, c_{\text{i}})\) denote the model outputs conditioned on the whole conditioning \(c = \{c_I,c_i\}\), only the interaction, and only the individual, respectively. The weights \(w_c\), \(w_I\), and \(w_i\) \(\in \mathbb{R}\) adjust the influence of each conditioned output relative to the unconditional baseline. A notable limitation of this approach is the necessity to perform quadruple sampling from the denoiser, as opposed to the double sampling required in a conventional CFG methodology. In exchange, this method allows for more refined control over the generation process, ensuring that the model can effectively capture and express the nuances of both individual and interaction-specific conditions. If a weight is set to 0, then that particular conditioning is ignored during the generation process.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+</section>
+
+<script>
+  plotMotion("myDiv6","playPause6", in2IN_275)
+  plotMotion("myDiv5","playPause5", intergen_275)
+  plotMotion("myDiv8","playPause8", in2IN_140)
+  plotMotion("myDiv7","playPause7", intergen_140)
+  plotMotion("myDiv10","playPause10", in2IN_1304)
+  plotMotion("myDiv9","playPause9", intergen_1304)
+  plotMotion("myDiv12","playPause12", in2IN_3311)
+  plotMotion("myDiv11","playPause11", intergen_3311)
+</script>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">💃 DualMDM: Model Composition 👫</h2>
+        <div class="content has-text-justified">
+          <p>
+            DualMDM is a new <b>motion composition</b> technique to further increase the individual diversity and control. By combining our in2IN interaction model with a single-person (individual) motion prior, we generate interactions with more diverse intra-personal dynamics.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+        <p class="has-text-centered"><b>Interaction description:</b></p>
+        <p class="has-text-centered">Two persons are in an intense boxing match.</p>
+        <p class="has-text-centered"><font color="blue"><b>Individual description #1:</b></font></p>
+        <p class="has-text-centered">An individual throws a kick with his right leg.</p>
+        <p class="has-text-centered"><font color="red"><b>Individual description #2:</b></font></p>
+        <p class="has-text-centered">An individual is boxing.</p>
+        <div class="columns is-multiline is-centered mt-3">
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause13" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv13" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">Exponential \(\lambda = 0.00625\)</p>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause14" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv14" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">Constant \(\lambda = 0.25\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="has-text-centered"><b>Interaction description:</b></p>
+        <p class="has-text-centered">Two people greet each other by shaking hands.</p>
+        <p class="has-text-centered"><font color="blue"><b>Individual description #1:</b></font></p>
+        <p class="has-text-centered">One person reaches out their hand to meet the other person's hand, shaking it in a vertical motion.</p>
+        <p class="has-text-centered"><font color="red"><b>Individual description #2:</b></font></p>
+        <p class="has-text-centered">An individual jumps.</p>
+        <div class="columns is-multiline is-centered mt-3">
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause15" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv15" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">Exponential \(\lambda = 0.00625\)</p>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause16" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv16" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">Constant \(\lambda = 0.25\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="has-text-centered"><b>Interaction description:</b></p>
+        <p class="has-text-centered">Two people salute to each other.</p>
+        <p class="has-text-centered"><font color="blue"><b>Individual description #1:</b></font></p>
+        <p class="has-text-centered">An individual bows forward.</p>
+        <p class="has-text-centered"><font color="red"><b>Individual description #2:</b></font></p>
+        <p class="has-text-centered">An individual raises their right arm and waves it.</p>
+        <div class="columns is-multiline is-centered mt-3">
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause17" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv17" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">Exponential \(\lambda = 0.00875\)</p>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-align-items-center">
+            <button id="playPause18" class="external-link button is-normal is-rounded is-dark">Play</button>
+            <div id="myDiv18" style="width: 100%; aspect-ratio:1/1;"></div>
+            <p class="has-text-centered">Constant \(\lambda = 0.25\)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      plotMotion("myDiv13","playPause13", DualMDM_001)
+      plotMotion("myDiv14","playPause14", DualMDM_003)
+      plotMotion("myDiv15","playPause15", DualMDM_011)
+      plotMotion("myDiv16","playPause16", DualMDM_014)
+      plotMotion("myDiv17","playPause17", DualMDM_004)
+      plotMotion("myDiv18","playPause18", DualMDM_007)
+    </script>
+  </div>
+
+
+  <section class="accordions container is-max-desktop" style="margin-top: 5rem;">
+    <article class="accordion">
+      <div class="accordion-header p-4">
+        <p>Schedulers</p>
+        <button class="toggle" aria-label="toggle"></button>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-content">
+          <p>
+            We propose a motion model composition technique that allows us to combine interactions generated by an interaction model with the motions generated by an individual motion prior trained with a single-person motion dataset. This method uses a single-person human motion prior to provide the generated human-human interactions with a higher diversity of intra-personal dynamics. 
+          </p>
+          
+          <p>
+            \[
+            \begin{aligned}
+                G^{I,i}(x^t, t, c) &= G^{\text{I}}(x^t, t, c) \\
+                &+ w \cdot (G^{\text{i}}(x^t, t, c_i) - G{^{\text{I}}}(x^t, t, c)),
+            \end{aligned}
+            \]
+          </p>
+
+          <p>
+            where \(G^{\text{I}}(x^t, t, c)\) is the output of the interaction diffusion model, \(G^{\text{i}}(x^t, t, c_i)\) is the output of the individual motion prior, and \(w\in \mathbb{R}\) is the blending weight. By choosing \(w\) to be constant, authors from DiffusionBlending assumed that the optimal blending weight is the same along the whole sampling process. However, we argue that the optimal blending weight might vary along the denoising chain, depending on the particularities of each scenario. To account for this, we propose to replace the constant \(w\) with a weight scheduler \(w(t)\) that parameterizes the blending weight used to combine the denoised motion from both models, making it variable on the sampling phase. As a generalization of the DiffusionBlending technique, DualMDM is a more flexible and powerful strategy to combine two diffusion models.
+          </p>
+          <div id="schedulers"></div>
+          <script>
+            plotScheduler("schedulers")
+          </script>
+        </div>
+      </div>
+    </article>
+    <script>
+      var accordions = bulmaAccordion.attach(); // accordions now contains an array of all Accordion instances
+    </script>
+  </section>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{
+      anonymous2024inin,
+      title={in2{IN}: Leveraging individual Information to Generate Human {IN}teractions},
+      author={Anonymous},
+      booktitle={Submitted to The first Workshop on Human Motion Generation (HuMoGen)},
+      year={2024},
+      url={https://openreview.net/forum?id=JJkLFyfKwa},
+      note={under review}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
