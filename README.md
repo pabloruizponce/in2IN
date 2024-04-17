@@ -4,6 +4,7 @@
     <a href="https://pabloruizponce.github.io/in2IN/"><img alt="Project" src="https://img.shields.io/badge/-Project%20Page-lightgrey?logo=Google%20Chrome&color=informational&logoColor=white"></a>
     <a href="https://arxiv.org/abs/2404.09988"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2404.09988-b31b1b.svg"></a> 
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fpabloruizponce%2Fin2IN%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false"/></a>
+    <a href="https://paperswithcode.com/sota/motion-synthesis-on-interhuman?p=in2in-leveraging-individual-information-to-1"><img src="https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/in2in-leveraging-individual-information-to-1/motion-synthesis-on-interhuman"/></a>
   </p>
 
 <br>
