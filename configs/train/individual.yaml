@@ -1,0 +1,18 @@
+GENERAL:
+  EXP_NAME: DualMDMIndividual
+  CHECKPOINT: ./checkpoints
+  LOG_DIR: ./log
+
+TRAIN:
+  LR: 1e-4
+  WEIGHT_DECAY: 0.00002
+  BATCH_SIZE: 64
+  EPOCH: 2000
+  STEP: 1000000
+  LOG_STEPS: 10
+  SAVE_EPOCH: 50
+  RESUME: 
+  NUM_WORKERS: 8
+  MODE: finetune
+  LAST_EPOCH: 0
+  LAST_ITER: 0

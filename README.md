@@ -19,15 +19,92 @@ Generating human-human motion interactions conditioned on textual descriptions i
 
 
 ## 📌 News
+- [2024-06-04] Code, model weights, and additional training data are now available!
 - [2024-04-16] Our paper is available on [arXiv](https://arxiv.org/abs/2404.09988)
 - [2024-04-06] in2IN is now accepted at CVPR 2024 Workshop [HuMoGen](https://humogen.github.io)!
 
 ## 📝 TODO List
-- [ ] Release code
-- [ ] Release model weights
-- [ ] Release individual descriptions from InterHuman dataset.
+- [x] Release code
+- [x] Release model weights
+- [x] Release individual descriptions from InterHuman dataset.
 - [ ] Release visualization code.
 
+
+## 💻 Usage
+### 🛠️ Installation
+1. Clone the repo
+  ```sh
+  git clone https://github.com/pabloruizponce/in2IN.git
+  ```
+2. Install the requirements
+   1. Download the required libraries
+      ```sh
+      pip install -r requirements.txt
+      ```
+   2. Install ffmpeg
+      ```sh
+      sudo apt update
+      sudo apt install ffmpeg
+      ```
+
+   > [!WARNING]  
+   > All the code has been tested with Ubuntu 22.04.3 LTS x86_64 using Python 3.12.2 and CUDA 12.3.1. If you have any issues, please open and issue.
+3. Download the individual descriptions from the InterHuman dataset from [here](https://drive.google.com/drive/folders/14I3_BLu7ItWPNBWN8rMChOZiIkEhXrxH?usp=share_link) and place them in the `data` folder.
+> [!IMPORTANT]  
+> The original InterHuman dataset is needed to run the code. You can download it from [here](https://github.com/tr3e/InterGen). If you use the dataset, please cite us and the original paper.
+
+### 🕹️ Inference
+Download the model weights from [here](https://drive.google.com/drive/folders/14I3_BLu7ItWPNBWN8rMChOZiIkEhXrxH?usp=share_link) and place them in the `checkpoints` folder.
+
+```sh
+  python src/scripts/infer.py \
+      --model configs/models/in2IN.yaml \
+      --infer configs/infer.yaml \
+      --mode interaction \
+      --out results \
+      --device 0 \
+      --text_interaction "Interaction textual description" \
+      --text_individual1 "Individual textual description" \
+      --text_individual2 "Individual textual description" \
+      --name "output_name" \
+```
+
+> [!NOTE]  
+> More information about the parameters can be found using the `--help` flag.
+
+
+### 🏃🏻‍♂️ Training
+
+```sh
+  python src/scripts/infer.py \
+      --train configs/train/in2IN.yaml \
+      --model configs/models/in2IN.yaml \
+      --data configs/datasets.yaml \
+      --mode interaction \
+      --device 0 \
+```
+
+### 🎖️ Evaluation
+Download the evaluator model weights from [here](https://drive.google.com/drive/folders/14I3_BLu7ItWPNBWN8rMChOZiIkEhXrxH?usp=share_link) and place them in the `checkpoints` folder.
+
+#### Interaction Quality
+```sh
+  python src/scripts/infer.py \
+      --model configs/models/in2IN.yaml \
+      --evaluator configs/eval.yaml \
+      --mode [individual, interaction, dual] \
+      --out results \
+      --device 0 \
+      --mode  interaction \
+```
+
+#### Individual Diversity
+```sh
+  python src/scripts/infer.py \
+      --model configs/models/in2IN.yaml \
+      --evaluator configs/eval.yaml \
+      --device 0 \
+```
 
 ## 📚 Citation
 
@@ -43,3 +120,8 @@ If you find our work helpful, please cite:
       primaryClass={cs.CV}
 }
 ```
+
+## 🫶🏼 Acknowledgments
+- [InterGen](https://github.com/tr3e/InterGen) as we inherit a lot of code from them.
+- [MDM](https://github.com/GuyTevet/motion-diffusion-model) as we used their evaluation code for text-motion models.
+- [Diffusion Models Beat GANS on Image Synthesis](https://github.com/openai/guided-diffusion) as we used their gaussian diffuion code as a base for our implementation.

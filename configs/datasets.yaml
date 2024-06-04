@@ -1,0 +1,30 @@
+interhuman:
+    NAME: interhuman
+    DATA_ROOT: ./data/
+    MOTION_REP: global
+    MODE: train
+    CACHE: True
+    EXTENDED: True
+
+interhuman_val:
+    NAME: interhuman
+    DATA_ROOT: ./data/
+    MOTION_REP: global
+    MODE: val
+    CACHE: True
+    EXTENDED: True
+
+interhuman_test:
+    NAME: interhuman
+    DATA_ROOT: ./data/
+    MOTION_REP: global
+    MODE: test
+    CACHE: True
+    EXTENDED: True
+
+humanml3d:
+    NAME: humanml3d
+    DATA_ROOT: ./data/HumanML3D/
+    MOTION_REP: global
+    MODE: train
+    CACHE: True
