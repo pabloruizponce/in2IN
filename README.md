@@ -47,8 +47,8 @@ Generating human-human motion interactions conditioned on textual descriptions i
       sudo apt install ffmpeg
       ```
 
-   > [!WARNING]  
-   > All the code has been tested with Ubuntu 22.04.3 LTS x86_64 using Python 3.12.2 and CUDA 12.3.1. If you have any issues, please open and issue.
+> [!WARNING]  
+> All the code has been tested with Ubuntu 22.04.3 LTS x86_64 using Python 3.12.2 and CUDA 12.3.1. If you have any issues, please open and issue.
 3. Download the individual descriptions from the InterHuman dataset from [here](https://drive.google.com/drive/folders/14I3_BLu7ItWPNBWN8rMChOZiIkEhXrxH?usp=share_link) and place them in the `data` folder.
 > [!IMPORTANT]  
 > The original InterHuman dataset is needed to run the code. You can download it from [here](https://github.com/tr3e/InterGen). If you use the dataset, please cite us and the original paper.
