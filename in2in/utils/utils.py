@@ -1,3 +1,4 @@
+import os
 import math
 import time
 import torch
@@ -12,8 +13,9 @@ from .skeleton import Skeleton, uniform_skeleton
 
 class MotionNormalizer():
     def __init__(self):
-        mean = np.load("./utils/global_mean.npy")
-        std = np.load("./utils/global_std.npy")
+        package_dir = os.path.dirname(os.path.abspath(__file__))
+        mean = np.load(os.path.join(package_dir, "global_mean.npy"))
+        std = np.load(os.path.join(package_dir, "global_std.npy"))
         self.motion_mean = mean
         self.motion_std = std
 
@@ -43,8 +45,9 @@ class MotionNormalizerHML3D():
 
 class MotionNormalizerTorch():
     def __init__(self):
-        mean = np.load("./utils/global_mean.npy")
-        std = np.load("./utils/global_std.npy")
+        package_dir = os.path.dirname(os.path.abspath(__file__))
+        mean = np.load(os.path.join(package_dir, "global_mean.npy"))
+        std = np.load(os.path.join(package_dir, "global_std.npy"))
         self.motion_mean = torch.from_numpy(mean).float()
         self.motion_std = torch.from_numpy(std).float()
 
