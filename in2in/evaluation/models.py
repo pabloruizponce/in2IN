@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn  
 import clip
-from models.utils.utils import PositionalEncoding, set_requires_grad
+from in2in.models.utils.utils import PositionalEncoding, set_requires_grad
 
 
 from models import *

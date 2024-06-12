@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from utils.utils import *
+from in2in.utils.utils import *
 
 
 class InterLoss(nn.Module):

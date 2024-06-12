@@ -1,7 +1,7 @@
 import torch
 import numpy as np
-from utils.paramUtil import FACE_JOINT_INDX, HML_KINEMATIC_CHAIN, HML_RAW_OFFSETS, L_IDX1, L_IDX2
-from utils.quaternion import *
+from .paramUtil import FACE_JOINT_INDX, HML_KINEMATIC_CHAIN, HML_RAW_OFFSETS, L_IDX1, L_IDX2
+from .quaternion import *
 from scipy.ndimage import filters
 class Skeleton(object):
     """

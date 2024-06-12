@@ -15,8 +15,8 @@ import torch.distributed as dist
 import numpy as np
 import torch as th
 
-from utils.utils import *
-from models.utils.losses import InterLoss, GeometricLoss
+from in2in.utils.utils import *
+from in2in.models.utils.losses import InterLoss, GeometricLoss
 
 
 def create_named_schedule_sampler(name, diffusion):

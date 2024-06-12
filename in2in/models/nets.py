@@ -1,13 +1,13 @@
-from models.utils.cfg_sampler import ClassifierFreeSampleDualMDM, ClassifierFreeSampleModel, ClassifierFreeSampleModelMultiple
+from in2in.models.utils.cfg_sampler import ClassifierFreeSampleDualMDM, ClassifierFreeSampleModel, ClassifierFreeSampleModelMultiple
 import torch
 import random
 import torch.nn as nn
 
 
-from models.utils.blocks import TransformerBlockDoubleCond
-from models.utils.gaussian_diffusion import LossType, ModelMeanType, ModelVarType, MotionDiffusion, create_named_schedule_sampler, get_named_beta_schedule, space_timesteps
-from models.utils.layers import FinalLayer
-from models.utils.utils import PositionalEncoding, TimestepEmbedder, zero_module
+from in2in.models.utils.blocks import TransformerBlockDoubleCond
+from in2in.models.utils.gaussian_diffusion import LossType, ModelMeanType, ModelVarType, MotionDiffusion, create_named_schedule_sampler, get_named_beta_schedule, space_timesteps
+from in2in.models.utils.layers import FinalLayer
+from in2in.models.utils.utils import PositionalEncoding, TimestepEmbedder, zero_module
 
 class in2INDiffusion(nn.Module):
     # Mode can be individual interaction or dual

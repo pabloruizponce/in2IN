@@ -2,8 +2,8 @@ import torch
 import clip
 
 from torch import nn
-from models.nets import in2INDiffusion
-from models.utils.utils import set_requires_grad
+from in2in.models.nets import in2INDiffusion
+from in2in.models.utils.utils import set_requires_grad
 
 class in2IN(nn.Module):
     def __init__(self, cfg, mode):

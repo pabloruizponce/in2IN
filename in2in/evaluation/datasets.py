@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 from os.path import join as pjoin
 from torch.utils.data import Dataset, DataLoader
-from utils.utils import MotionNormalizer
+from in2in.utils.utils import MotionNormalizer
 
 class EvaluationDatasetInterHuman(Dataset):
     """

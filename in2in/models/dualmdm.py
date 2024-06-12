@@ -1,6 +1,6 @@
 
 
-from models.in2in import in2IN
+from in2in.models.in2in import in2IN
 import torch
 
 def load_DualMDM_model(model_cfg):

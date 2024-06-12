@@ -3,10 +3,10 @@ import time
 import torch
 import numpy as np
 
-from utils.paramUtil import FACE_JOINT_INDX, FID_L, FID_R, FACE_JOINT_INDX, HML_KINEMATIC_CHAIN, HML_RAW_OFFSETS
-from utils.quaternion import *
-from utils.rotation_conversions import *
-from utils.skeleton import Skeleton, uniform_skeleton
+from .paramUtil import FACE_JOINT_INDX, FID_L, FID_R, FACE_JOINT_INDX, HML_KINEMATIC_CHAIN, HML_RAW_OFFSETS
+from .quaternion import *
+from .rotation_conversions import *
+from .skeleton import Skeleton, uniform_skeleton
 
 ### MOTION NORMZALIZERS ###
 

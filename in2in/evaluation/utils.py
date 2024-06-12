@@ -2,10 +2,10 @@ import copy
 import numpy as np
 import torch
 
-from evaluation.datasets import EvaluationDatasetDualMDM, EvaluationDatasetInterHuman, MMGeneratedDatasetInterHuman
-from models import *
-from datasets import InterHuman
-from evaluation.models import InterCLIP
+from in2in.evaluation.datasets import EvaluationDatasetDualMDM, EvaluationDatasetInterHuman, MMGeneratedDatasetInterHuman
+from in2in.models import *
+from in2in.datasets import InterHuman
+from in2in.evaluation.models import InterCLIP
 from torch.utils.data import DataLoader
 
 def get_dataset_motion_loader(opt, batch_size, num_samples=-1):
