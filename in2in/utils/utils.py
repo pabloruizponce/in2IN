@@ -12,8 +12,8 @@ from .skeleton import Skeleton, uniform_skeleton
 
 class MotionNormalizer():
     def __init__(self):
-        mean = np.load("./in2in/utils/global_mean.npy")
-        std = np.load("./in2in/utils/global_std.npy")
+        mean = np.load("./utils/global_mean.npy")
+        std = np.load("./utils/global_std.npy")
         self.motion_mean = mean
         self.motion_std = std
 
@@ -43,8 +43,8 @@ class MotionNormalizerHML3D():
 
 class MotionNormalizerTorch():
     def __init__(self):
-        mean = np.load("./in2in/utils/global_mean.npy")
-        std = np.load("./in2in/utils/global_std.npy")
+        mean = np.load("./utils/global_mean.npy")
+        std = np.load("./utils/global_std.npy")
         self.motion_mean = torch.from_numpy(mean).float()
         self.motion_std = torch.from_numpy(std).float()
 
