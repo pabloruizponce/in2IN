@@ -29,5 +29,6 @@ setup(
     ],
     dependency_links=[
         'git+https://github.com/openai/CLIP.git',
-    ]
+    ],
+    package_data={'': ['*.npy']},
 )
