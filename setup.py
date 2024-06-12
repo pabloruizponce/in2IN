@@ -8,7 +8,7 @@ setup(
     version="1.0",
     description="",
     author="Pablo Ruiz Ponce",
-    packages=find_packages(include=['src', 'src.*']),
+    packages=find_packages(include=['in2in', 'in2in.*']),
     install_requires=[
         'numpy',
         'tqdm',
