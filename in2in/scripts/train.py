@@ -11,12 +11,12 @@ from pytorch_lightning.loggers import WandbLogger
 import torch.optim as optim
 from collections import OrderedDict
 from datasets import DataModule, DataModuleHML3D
-from utils.configs import get_config
+from in2in.utils.configs import get_config
 from os.path import join as pjoin
 import argparse
-from models.utils.utils import CosineWarmupScheduler
-from utils.utils import print_current_loss
-from models.in2in import in2IN
+from in2in.models.utils.utils import CosineWarmupScheduler
+from in2in.utils.utils import print_current_loss
+from in2in.models.in2in import in2IN
 
 
 os.environ['PL_TORCH_DISTRIBUTED_BACKEND'] = 'nccl'

@@ -6,10 +6,10 @@ import random
 import argparse
 import numpy as np
 
-from utils.configs import get_config
-from models.dualmdm import load_DualMDM_model
-from utils.metrics import calculate_wasserstein
-from evaluation.utils import EvaluatorModelWrapper, get_dataset_motion_loader, get_motion_loader_DualMDM
+from in2in.utils.configs import get_config
+from in2in.models.dualmdm import load_DualMDM_model
+from in2in.utils.metrics import calculate_wasserstein
+from in2in.evaluation.utils import EvaluatorModelWrapper, get_dataset_motion_loader, get_motion_loader_DualMDM
 
 # Randon Seed Configuration
 np.random.seed(0)

@@ -1,5 +1,5 @@
 import numpy as np
-from utils.utils import *
+from .utils import *
 
 FPS = 30
 

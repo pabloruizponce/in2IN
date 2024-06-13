@@ -10,12 +10,12 @@ from scipy.ndimage import gaussian_filter1d
 import numpy as np
 
 from lightning import LightningModule
-from utils.utils import MotionNormalizer, MotionNormalizerHML3D
-from utils.plot import plot_3d_motion
-from utils.paramUtil import HML_KINEMATIC_CHAIN
-from utils.configs import get_config
-from models.dualmdm import load_DualMDM_model
-from models.in2in import in2IN
+from in2in.utils.utils import MotionNormalizer, MotionNormalizerHML3D
+from in2in.utils.plot import plot_3d_motion
+from in2in.utils.paramUtil import HML_KINEMATIC_CHAIN
+from in2in.utils.configs import get_config
+from in2in.models.dualmdm import load_DualMDM_model
+from in2in.models.in2in import in2IN
 
 class LitGenModel(LightningModule):
     def __init__(self, model, cfg, save_folder, mode):

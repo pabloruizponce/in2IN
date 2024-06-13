@@ -5,15 +5,15 @@ import numpy as np
 import torch
 
 from datetime import datetime
-from evaluation.utils import get_dataset_motion_loader, get_motion_loader_in2IN, EvaluatorModelWrapper
-from utils.metrics import *
+from in2in.evaluation.utils import get_dataset_motion_loader, get_motion_loader_in2IN, EvaluatorModelWrapper
+from in2in.utils.metrics import *
 from collections import OrderedDict
-from utils.plot import *
-from utils.utils import *
-from utils.configs import get_config
+from in2in.utils.plot import *
+from in2in.utils.utils import *
+from in2in.utils.configs import get_config
 from tqdm import tqdm
-from models.dualmdm import load_DualMDM_model
-from models.in2in import in2IN
+from in2in.models.dualmdm import load_DualMDM_model
+from in2in.models.in2in import in2IN
 
 import argparse
 
