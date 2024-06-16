@@ -51,7 +51,7 @@ def plot_3d_motion(save_path, kinematic_tree, mp_joints, title, figsize=(10, 10)
 
     # Offsets and colors
     mp_offset = list(range(-len(mp_joints)//2, len(mp_joints)//2, 1))
-    colors = ['red', 'green', 'black', 'red', 'blue',
+    colors = ['red', 'blue', 'black', 'red', 'blue',
               'darkblue', 'darkblue', 'darkblue', 'darkblue', 'darkblue',
               'darkred', 'darkred', 'darkred', 'darkred', 'darkred']
     mp_colors = [[colors[i]] * 15 for i in range(len(mp_offset))]
