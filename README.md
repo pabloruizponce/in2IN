@@ -111,13 +111,13 @@ Download the evaluator model weights from [here](https://drive.google.com/drive/
 If you find our work helpful, please cite:
 
 ```bibtex
-@misc{ponce2024in2in,
-      title={in2IN: Leveraging individual Information to Generate Human INteractions}, 
-      author={Pablo Ruiz Ponce and German Barquero and Cristina Palmero and Sergio Escalera and Jose Garcia-Rodriguez},
-      year={2024},
-      eprint={2404.09988},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@InProceedings{Ruiz-Ponce_2024_CVPR,
+    author    = {Ruiz-Ponce, Pablo and Barquero, German and Palmero, Cristina and Escalera, Sergio and Garc{\'\i}a-Rodr{\'\i}guez, Jos\'e},
+    title     = {in2IN: Leveraging Individual Information to Generate Human INteractions},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2024},
+    pages     = {1941-1951}
 }
 ```
 
