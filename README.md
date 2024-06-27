@@ -57,7 +57,7 @@ Generating human-human motion interactions conditioned on textual descriptions i
 Download the model weights from [here](https://drive.google.com/drive/folders/14I3_BLu7ItWPNBWN8rMChOZiIkEhXrxH?usp=share_link) and place them in the `checkpoints` folder.
 
 ```sh
-  python src/scripts/infer.py \
+  python in2in/scripts/infer.py \
       --model configs/models/in2IN.yaml \
       --infer configs/infer.yaml \
       --mode interaction \
@@ -76,7 +76,7 @@ Download the model weights from [here](https://drive.google.com/drive/folders/14
 ### 🏃🏻‍♂️ Training
 
 ```sh
-  python src/scripts/infer.py \
+  python in2in/scripts/train.py \
       --train configs/train/in2IN.yaml \
       --model configs/models/in2IN.yaml \
       --data configs/datasets.yaml \
@@ -89,7 +89,7 @@ Download the evaluator model weights from [here](https://drive.google.com/drive/
 
 #### Interaction Quality
 ```sh
-  python src/scripts/infer.py \
+  python in2in/scripts/eval/interhuman.py \
       --model configs/models/in2IN.yaml \
       --evaluator configs/eval.yaml \
       --mode [individual, interaction, dual] \
@@ -100,8 +100,8 @@ Download the evaluator model weights from [here](https://drive.google.com/drive/
 
 #### Individual Diversity
 ```sh
-  python src/scripts/infer.py \
-      --model configs/models/in2IN.yaml \
+  python in2in/scripts/eval/DualMDM.py \
+      --model configs/models/DualMDM.yaml \
       --evaluator configs/eval.yaml \
       --device 0 \
 ```
