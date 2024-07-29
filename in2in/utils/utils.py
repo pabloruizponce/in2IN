@@ -14,8 +14,8 @@ from .skeleton import Skeleton, uniform_skeleton
 class MotionNormalizer():
     def __init__(self):
         package_dir = os.path.dirname(os.path.abspath(__file__))
-        mean = np.load(os.path.join(package_dir, "global_mean.npy"))
-        std = np.load(os.path.join(package_dir, "global_std.npy"))
+        mean = np.load(os.path.join(package_dir, "interhuman_mean.npy"))
+        std = np.load(os.path.join(package_dir, "interhuman_std.npy"))
         self.motion_mean = mean
         self.motion_std = std
 
@@ -29,8 +29,9 @@ class MotionNormalizer():
 
 class MotionNormalizerHML3D():
     def __init__(self):
-        mean = np.load("./data/HumanML3D/mean_interhuman.npy")
-        std = np.load("./data/HumanML3D/std_interhuman.npy")
+        package_dir = os.path.dirname(os.path.abspath(__file__))
+        mean = np.load(os.path.join(package_dir, "hml3d_mean.npy"))
+        std = np.load(os.path.join(package_dir, "hml3d_std.npy"))
         self.motion_mean = mean
         self.motion_std = std
 
@@ -46,8 +47,8 @@ class MotionNormalizerHML3D():
 class MotionNormalizerTorch():
     def __init__(self):
         package_dir = os.path.dirname(os.path.abspath(__file__))
-        mean = np.load(os.path.join(package_dir, "global_mean.npy"))
-        std = np.load(os.path.join(package_dir, "global_std.npy"))
+        mean = np.load(os.path.join(package_dir, "interhuman_mean.npy"))
+        std = np.load(os.path.join(package_dir, "interhuman_std.npy"))
         self.motion_mean = torch.from_numpy(mean).float()
         self.motion_std = torch.from_numpy(std).float()
 
@@ -66,8 +67,9 @@ class MotionNormalizerTorch():
 
 class MotionNormalizerTorchHML3D():
     def __init__(self):
-        mean = np.load("./data/HumanML3D/mean_interhuman.npy")
-        std = np.load("./data/HumanML3D/std_interhuman.npy")
+        package_dir = os.path.dirname(os.path.abspath(__file__))
+        mean = np.load(os.path.join(package_dir, "hml3d_mean.npy"))
+        std = np.load(os.path.join(package_dir, "hml3d_std.npy"))
         self.motion_mean = torch.from_numpy(mean).float()
         self.motion_std = torch.from_numpy(std).float()
 
