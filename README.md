@@ -92,10 +92,9 @@ Download the evaluator model weights from [here](https://drive.google.com/drive/
   python in2in/scripts/eval/interhuman.py \
       --model configs/models/in2IN.yaml \
       --evaluator configs/eval.yaml \
-      --mode [individual, interaction, dual] \
+      --mode [interaction, dual] \
       --out results \
       --device 0 \
-      --mode  interaction \
 ```
 
 #### Individual Diversity
