@@ -123,4 +123,4 @@ If you find our work helpful, please cite:
 ## 🫶🏼 Acknowledgments
 - [InterGen](https://github.com/tr3e/InterGen) as we inherit a lot of code from them.
 - [MDM](https://github.com/GuyTevet/motion-diffusion-model) as we used their evaluation code for text-motion models.
-- [Diffusion Models Beat GANS on Image Synthesis](https://github.com/openai/guided-diffusion) as we used their gaussian diffuion code as a base for our implementation.
+- [Diffusion Models Beat GANS on Image Synthesis](https://github.com/openai/guided-diffusion) as we used their gaussian diffusion code as a base for our implementation.
